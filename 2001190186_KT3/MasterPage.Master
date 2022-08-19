@@ -1,0 +1,169 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="_2001190186_KT3.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Lê Lưu Hoàng Nhân - 2001190186 - Kiểm tra lần 03</title>
+<%--    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>--%>
+
+    <style>
+        body{
+            font-family: Arial;
+            font-size:14px;
+        }
+
+        #main{
+            width:1280px;
+            padding:0;
+            margin-right:auto;
+            margin-left:auto;
+        }
+
+        #head{
+            height: 350px;
+            background-color: #114674;
+            border: 1px solid #114674;
+        }
+
+        #head_link {
+            height: 50px;
+            margin-bottom: 20px;
+            background-color: #ffd800;
+            border: 1px solid #ffd800;
+        }
+
+        #left {
+            float: left;
+            margin-right:20px;
+            margin-bottom: 20px;
+            width: 280px;
+        }
+
+        #content {
+            float: left;
+            margin-bottom: 20px;
+            width: 975px;
+        }
+
+        #foot {
+            clear:both;
+            height: 160px;
+            background-color: #114674;
+            border: 1px solid #114674;
+        }
+
+        #Menu{
+            margin-top:13px;
+            margin-bottom:10px;
+            margin-left:140px;
+        }
+
+        #grv_Menu{
+            line-height:60px;
+            border:none;
+        }
+
+        #content-foot
+        {
+            font-size:28px;
+            color:white;
+            padding-left:175px;
+            padding-top: 20px;
+            padding-bottom:10px;
+        }
+
+        .can_Chinh_Header_Menu_Left
+        {
+            font-size: 24px;
+            font-weight:bold;
+            color:#ffd800;
+            text-decoration:none;
+            padding-bottom:10px;
+            border-bottom: 1px solid #d9cbcb;
+        }
+
+        .can_Chinh_Menu{
+            font-size:22px;
+            font-weight:bold;
+            color: #114674;
+        }
+
+        .can_Chinh_Menu_Left{
+            font-size: 20px;
+            color:black;
+            text-decoration:none;
+            padding-bottom:10px;
+            border-bottom: 1px solid #d9cbcb;
+            margin-left:15px;
+        }
+
+
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="main">
+            <div id="head">
+                <asp:Image ID="img_head" runat="server" ImageUrl="https://tongdaivemaybay.vn//vnt_upload/news/07_2018/1524713065.jpg" Width="1280px" Height="350px"/>
+
+            </div>
+
+
+
+            <div id="head_link">
+                <div id="Menu">
+                    <asp:SiteMapDataSource ID="SiteMap" runat="server" ShowStartingNode="false" />
+                    <asp:Menu ID="MenuSiteMap" runat="server" DataSourceID="SiteMap" Orientation="Horizontal" StaticEnableDefaultPopOutImage="false" StaticMenuItemStyle-HorizontalPadding="50px" CssClass="can_Chinh_Menu"></asp:Menu>
+                </div>
+
+
+            </div>
+
+
+            
+            <div id="left">
+                <div id="Menu_Left">
+                    <asp:GridView ID="grv_Menu" runat="server" AutoGenerateColumns="false" BorderColor="White" OnRowDataBound="grv_Menu_RowDataBound">
+                        <Columns>
+                           <asp:TemplateField HeaderText="DU LỊCH TRONG NƯỚC" HeaderStyle-CssClass="can_Chinh_Header_Menu_Left">                
+                                <ItemTemplate>     
+                                    <asp:Label ID="lbl_danhMuc" runat="server" Visible="false" Text='<%# Eval("MaDM") %>'></asp:Label>
+                                     <asp:HyperLink ID="link" runat="server" CssClass="can_Chinh_Menu_Left" NavigateUrl="~/DataList.aspx" Text='<%# Eval("TenDM") %>' />
+                                    
+
+                                </ItemTemplate>                
+                            </asp:TemplateField>
+                            
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+
+
+            
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+
+            <div id="foot">
+                <div id="content-foot">
+                    <p>
+                        &#169;Bản quyền thuộc về <b>CÔNG TY TNHH DỊCH VỤ DU LỊCH SUMOSTAR</b><br />
+                        Trụ sở: 29/10b Ấp Thới Tứ, Xã Thới Tam Thôn, Huyện Hóc Môn, TP. HCM.<br />
+                        <b>Sinh viên thực hiện: </b> Lê Lưu Hoàng Nhân (2001190186).
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</body>
+</html>
